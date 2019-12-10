@@ -28,6 +28,8 @@ Optional: nba_test.py is the unittest file for this project
 3) There are four plot options, the user could type the following four command to draw the graph.
   a. "Arena location":
       This command enables user to see the map of the 30 NBA Arenas in North America.
+  
+  
   b. "Players in {team parameter}":
       Eg: "Players in NYK"
       This command could show the players table including their position and average points from a team.
@@ -44,6 +46,8 @@ Optional: nba_test.py is the unittest file for this project
       POR	- Portland Trail Blazers    SAC	- Sacramento Kings        SAS	- San Antonio Spurs
       TOR	- Toronto Raptors           UTA	- Utah Jazz               WAS	- Washington Wizards
       
+  
+  
   c. "Compare {team parameter} {team parameter}":
       Eg: "Compare ATL DEN"
       This Command would enable user to compare the stats between two teams. It shows a bar chart which includes wins,             PTS/G(Points Per Game), average assistants, average rebounds and average 3 points field goals from two teams.
