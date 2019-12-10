@@ -11,11 +11,12 @@ import sqlite3
 import plotly.graph_objs as go
 import numpy as np
 import plotly.express as px
-import nba
+from secrets import google_places_key 
+from secrets import mapbox_access_token 
 
 
-google_places_key = 'AIzaSyA7SpYbjtVmddhKpJXvgZ32W2uCkAxPI4E'
-mapbox_access_token = "pk.eyJ1IjoicHJpbmNpcGxleiIsImEiOiJjam1taTE3dGowamRjM3FqcG50MGp0anEwIn0.XuaFZy4Tff6aTfjiQUdd9Q"
+#google_places_key = 'AIzaSyA7SpYbjtVmddhKpJXvgZ32W2uCkAxPI4E'
+#mapbox_access_token = "pk.eyJ1IjoicHJpbmNpcGxleiIsImEiOiJjam1taTE3dGowamRjM3FqcG50MGp0anEwIn0.XuaFZy4Tff6aTfjiQUdd9Q"
 
 DBNAME = 'nba.db'
 CACHE_FNAME = 'cache.json'
@@ -47,13 +48,13 @@ def make_request_using_cache(url,params):
     unique_ident = params_unique_combination(url,params)
     ## first, look in the cache to see if we already have this data
     if unique_ident in CACHE_DICTION:
-        print("Getting cached data...")
+        #print("Getting cached data...")
         return CACHE_DICTION[unique_ident]
 
     ## if not, fetch the data afresh, add it to the cache,
     ## then write the cache to file
     else:
-        print("Making a request for new data...")
+        #print("Making a request for new data...")
         # Make the request and cache the new data
         resp = requests.get(url,params)
         CACHE_DICTION[unique_ident] = resp.text
@@ -272,7 +273,6 @@ def showrelation(command):
             l1.append(row[0])
             l2.append(row[1])
     conn.commit()
-    print(l1)
     conn.close()
     fig = px.scatter(x=l1, y=l2,trendline="ols",labels={'x':first, 'y':second})
     fig.show()

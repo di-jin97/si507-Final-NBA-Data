@@ -1,9 +1,6 @@
 import unittest
 from nba import *
-
-
-        
-
+from nba_plot import *
 
 class TestDatabase(unittest.TestCase):
 
@@ -103,18 +100,6 @@ class TestMapping(unittest.TestCase):
         except:
             self.fail()
 
-class TestGetData(unittest.TestCase):
-    def get_nba_data(self):
-        name,player = get_2019nba_players()
-        print(name)
-        self.assertIn(('aa',), name)
-        
-class TestSource(unittest.TestCase):
-    # can't test to see if the maps are correct, but we can test that
-    # the functions don't return an error!
-    def test_source(self):
-        name = get_2019nba_players()
-        self.assertIn('Thaddeus Young', name)
 
         
 unittest.main()

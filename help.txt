@@ -1,0 +1,15 @@
+There are four plot options, the user could type the following four command to draw the graph:
+
+a. "Arena location": This command enables user to see the map of the 30 NBA Arenas in North America. 
+
+b. "Players in {team parameter}": Eg: "Players in NYK" 
+This command could show the players table including their position and average points from a team.Team parameter could be the following NBA nameabbr (3 Capital characters).
+
+
+c. "Compare {team parameter} {team parameter}": 
+Eg: "Compare NYK LAC" This Command would enable user to compare the stats between two teams. It shows a bar chart which includes wins, PTS/G(Points Per Game), average assistants, average rebounds and average 3 points field goals from two teams.
+
+d. "Players {stats parameter} {stats parameter}": 
+   Eg: "Players 2point assist" stats parameter includes: 'experience','experience','age','gameplayed','2point','3point','assist' ,'rebound' ,'points'. This command enables user to see the realation between two parameter. 
+
+

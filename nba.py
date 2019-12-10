@@ -2,19 +2,8 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import sqlite3
-import sys
-import plotly.graph_objs as go
 from time import strptime
 import datetime
-import numpy as np
-import plotly.express as px
-#import plotly.plotly as py
-#from plotly.subplots import make_subplots
-
-
-
-google_places_key = 'AIzaSyA7SpYbjtVmddhKpJXvgZ32W2uCkAxPI4E'
-mapbox_access_token = "pk.eyJ1IjoicHJpbmNpcGxleiIsImEiOiJjam1taTE3dGowamRjM3FqcG50MGp0anEwIn0.XuaFZy4Tff6aTfjiQUdd9Q"
 
 DBNAME = 'nba.db'
 CACHE_FNAME = 'cache.json'
@@ -133,13 +122,13 @@ def make_request_using_cache(url,params):
     unique_ident = params_unique_combination(url,params)
     ## first, look in the cache to see if we already have this data
     if unique_ident in CACHE_DICTION:
-        print("Getting cached data...")
+        #print("Getting cached data...")
         return CACHE_DICTION[unique_ident]
 
     ## if not, fetch the data afresh, add it to the cache,
     ## then write the cache to file
     else:
-        print("Making a request for new data...")
+        #print("Making a request for new data...")
         # Make the request and cache the new data
         resp = requests.get(url,params)
         CACHE_DICTION[unique_ident] = resp.text
@@ -432,8 +421,3 @@ if __name__=="__main__":
     get_2019nba_players()
     get_team()
     get_player()
-
-'''init_db()
-get_2019nba_players()
-get_team()
-get_player()'''
