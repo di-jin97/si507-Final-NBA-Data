@@ -49,11 +49,13 @@ Optional: nba_test.py is the unittest file for this project
   
   
   c. "Compare {team parameter} {team parameter}":
+      
       Eg: "Compare ATL DEN"
       This Command would enable user to compare the stats between two teams. It shows a bar chart which includes wins,             PTS/G(Points Per Game), average assistants, average rebounds and average 3 points field goals from two teams.
       
       
   d. "Players {stats parameter} {stats parameter}":
+      
       Eg: "Players 2point assist"
       stats parameter includes: 'experience','experience','age','gameplayed', '2point','3point','assist' ,'rebound'
       ,'points'.
