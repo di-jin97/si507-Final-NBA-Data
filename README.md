@@ -11,6 +11,10 @@ BasketBall-Reference: https://www.basketball-reference.com/
 Presentation Package:
 Plotly: https://plot.ly/
 
+Cache File:
+Google Drive: https://drive.google.com/file/d/1M-G1CJCZWHb5AdKAHCd53ozbmga-oy3s/view?usp=sharing
+(Because the limit of file size on Github, I put cahce file link here and it would sacve time to tun the program)
+
 # Instructions
 
 0) The program will utilize the online Plotly Website, please see this page if you do not have a plotly account set up. (https://plot.ly/python/getting-started/)
@@ -52,7 +56,8 @@ Optional: nba_test.py is the unittest file for this project
       
       Eg: "Compare ATL DEN"
       
-      This Command would enable user to compare the stats between two teams. It shows a bar chart which includes wins,             PTS/G(Points Per Game), average assistants, average rebounds and average 3 points field goals from two teams.
+  This Command would enable user to compare the stats between two teams. It shows a bar chart which includes wins,          
+  PTS/G(Points Per Game), average assistants, average rebounds and average 3 points field goals from two teams.
       
       
   d. "Players {stats parameter} {stats parameter}":
@@ -61,7 +66,8 @@ Optional: nba_test.py is the unittest file for this project
       stats parameter includes: 'experience','experience','age','gameplayed', '2point','3point','assist' ,'rebound'
       ,'points'.
       
-      This command enables user to see the realation between two parameter. It will use the two parameter data to draw a            scatter plot for all NBA players, and also draw a linear regression line for the two data. 
+  This command enables user to see the realation between two parameter. It will use the two parameter data to draw a        
+  scatter plot for all NBA players, and also draw a linear regression line for the two data. 
       
       
 
