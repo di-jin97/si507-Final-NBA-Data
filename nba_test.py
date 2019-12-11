@@ -7,7 +7,6 @@ class TestDatabase(unittest.TestCase):
     def test_player_table(self):
         conn = sqlite3.connect(DBNAME)
         cur = conn.cursor()
-
         sql = 'SELECT Name FROM Players'
         results = cur.execute(sql)
         result_list = results.fetchall()

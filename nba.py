@@ -5,8 +5,19 @@ import sqlite3
 from time import strptime
 import datetime
 
-DBNAME = 'nba.db'
-CACHE_FNAME = 'cache.json'
+
+# Name: Di Jin
+# SI 507 Final Project, The project includes two file: nba.py and nba_test.py
+# nba.py crawls the data of nba players and teams from basketballreference, and
+# input the data to SQL database. nba_plot.py could draw four graph to do data 
+# visualization
+
+
+DBNAME = 'nba.db'           # Database name
+CACHE_FNAME = 'cache.json'  # Cache file name
+
+
+#initialize database including three tables, Players, Players2019 and Teams
 
 def init_db():
     conn = sqlite3.connect(DBNAME)
@@ -90,11 +101,10 @@ def init_db():
     '''
     cur.execute(statement)
     conn.commit()
-    
     conn.close()
 
 
-
+#Cache Part
 try:
     cache_file = open(CACHE_FNAME, 'r')
     cache_contents = cache_file.read()
@@ -140,7 +150,8 @@ def make_request_using_cache(url,params):
 
 
 
-
+# Get NBA players game stats for 2019-2020 season, write them to cache jason file 
+# and insert to SQL database
 def get_2019nba_players():
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
@@ -177,9 +188,8 @@ def get_2019nba_players():
                                                           Assists,Rebounds,'Total Points') \
                                                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);", state)
         conn.commit()
-
     conn.close()
-    return namelist
+
     
 
 def get_player():
