@@ -15,9 +15,6 @@ from secrets import google_places_key
 from secrets import mapbox_access_token 
 
 
-#google_places_key = 'AIzaSyA7SpYbjtVmddhKpJXvgZ32W2uCkAxPI4E'
-#mapbox_access_token = "pk.eyJ1IjoicHJpbmNpcGxleiIsImEiOiJjam1taTE3dGowamRjM3FqcG50MGp0anEwIn0.XuaFZy4Tff6aTfjiQUdd9Q"
-
 DBNAME = 'nba.db'
 CACHE_FNAME = 'cache.json'
 
@@ -65,13 +62,13 @@ def make_request_using_cache(url,params):
         return CACHE_DICTION[unique_ident]
 
 
-
+#Load hepl text
 def load_help_text():
     with open('help.txt') as f:
         return f.read()           
-            
+   
+
 def interactive_prompt():
-    
     help_text = load_help_text()
     response = ''
     while response != 'exit':
@@ -84,23 +81,27 @@ def interactive_prompt():
     print('bye')
 
 
-    
+#pricess command and draw different plot    
 def process_command(command):
     command = command.lower()
     list1 = ['experience','age','gameplayed','2point','3point','assist','rebound','points']
     list2 = ['LAL','LAC','DAL','HOU','DEN','UTA','OKC','PHO','MIN','SAC','SAS','POR','MEM',
              'NOP','GSW','MIL','BOS','MIA','PHI','TOR','IND','BRK','ORL','DET','CHO','CHI','WAS','ATL','CLE','NYK']
     each_command = command.split()
+    
     if each_command[0] == 'arena' and each_command[1] == 'location':
         showarena()
+        
     if each_command[0] == 'players' and each_command[1] == 'in':
         showplayers(each_command[2])
+        
     if each_command[0] == 'players' and each_command[1] in list1 and each_command[2] in list1:
         showrelation(each_command)
+        
     if each_command[0] == 'compare' and each_command[1].upper() in list2 and each_command[2].upper() in list2: 
         compare(each_command[1].upper(),each_command[2].upper())
  
-
+#Use histogram to compare stats between two teams
 def compare(team1,team2):
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
@@ -153,7 +154,7 @@ def compare(team1,team2):
     
 
 
-      
+#Show the map of team arena      
 def showarena():
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
@@ -220,7 +221,7 @@ def showarena():
     
     
     
-    
+#Use table to show all the players in certin team    
 def showplayers(teamname):
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
@@ -248,7 +249,7 @@ def showplayers(teamname):
     fig.show()
     conn.close
     
-    
+#Use scatter plot to show the relation between the stats for all players    
 def showrelation(command):
     conn = sqlite3.connect(DBNAME)
     cur = conn.cursor()
