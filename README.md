@@ -1,4 +1,4 @@
-# si507-Final-NBA-Data
+# SI507-Final-NBA-Data
 SI 507 Final Project Readme
 Di Jin
 
